@@ -8,13 +8,15 @@
 import UIKit
 
 protocol NotesListViewController: AnyObject {
-    
+    var addNoteButtonTappedHandler: ((UIViewController) -> ())? { get set }
 }
 
 final class NotesListViewControllerImpl: UIViewController, NotesListViewController {
     
     private let notesListView: NotesListView
     private let presenter: NotesListPresenter
+    
+    var addNoteButtonTappedHandler: ((UIViewController) -> ())?
     
     init(presenter: NotesListPresenter) {
         self.notesListView = NotesListViewImpl()
@@ -29,11 +31,22 @@ final class NotesListViewControllerImpl: UIViewController, NotesListViewControll
     override func loadView() {
         super.loadView()
         presenter.loadView(viewController: self, view: notesListView)
+        view = notesListView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = (notesListView as! UIView)
+        addNoteButton()
+        title = "NotesListViewControllerImpl"
+    }
+    
+    private func addNoteButton() {
+        let addNoteButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNoteButtonTapped))
+        self.navigationItem.rightBarButtonItem = addNoteButton
+    }
+    
+    @objc private func addNoteButtonTapped() {
+        self.addNoteButtonTappedHandler?(self)
     }
 }
 

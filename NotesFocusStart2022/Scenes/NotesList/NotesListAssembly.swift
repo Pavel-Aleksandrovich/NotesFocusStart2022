@@ -11,9 +11,11 @@ final class NotesListAssembly {
     
     static func build() -> UIViewController {
         
-        let tableAdapter = NotesListTableAdapter()
-        let presenter = NotesListPresenterImpl()
+        let router = NotesListRouterImpl()
+        let tableAdapter = NotesListTableAdapterImpl()
+        let presenter = NotesListPresenterImpl(tableAdapter: tableAdapter, router: router)
         let viewController = NotesListViewControllerImpl(presenter: presenter)
-        return UINavigationController(rootViewController: viewController)
+        
+        return viewController
     }
 }
