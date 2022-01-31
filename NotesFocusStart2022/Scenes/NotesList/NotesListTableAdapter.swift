@@ -7,13 +7,18 @@
 
 import UIKit
 
+protocol NotesListTableAdapter: AnyObject {
+    var tableView: UITableView? { get set }
+    var delegate: NotesListTableAdapterDelegate? { get set }
+}
+
 protocol NotesListTableAdapterDelegate: AnyObject {
     func didSelectItem(title: String)
 }
 
-final class NotesListTableAdapter: NSObject {
+final class NotesListTableAdapterImpl: NSObject, NotesListTableAdapter {
     
-    private weak var delegate: NotesListTableAdapterDelegate?
+    weak var delegate: NotesListTableAdapterDelegate?
     private var dataSource: DiffableDataSource?
     private var notes = Dictionary<SectionIdentifier, [Entity]>()
     
@@ -29,13 +34,12 @@ final class NotesListTableAdapter: NSObject {
         }
     }
 }
-extension NotesListTableAdapter {
+extension NotesListTableAdapterImpl {
     private func makeDataSource(for tableView: UITableView) -> DiffableDataSource {
         let dataSource = DiffableDataSource(tableView: tableView) { tableView, indexPath, itemModel in
             let cell = tableView.dequeueReusableCell(withIdentifier: "NotesListCell", for: indexPath)
             
             if let cell = cell as? NotesListCell {
-                
 //                cell.update(viewModel: itemViewModel)
             }
             
@@ -45,7 +49,7 @@ extension NotesListTableAdapter {
     }
 }
 
-extension NotesListTableAdapter: UITableViewDelegate {
+extension NotesListTableAdapterImpl: UITableViewDelegate {
     
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let section = SectionIdentifier.allCases[indexPath.section]

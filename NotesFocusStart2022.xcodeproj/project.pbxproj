@@ -21,6 +21,9 @@
 		8476A27727A7B1330062440A /* NotesListTableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27627A7B1330062440A /* NotesListTableAdapter.swift */; };
 		8476A27927A7BBE50062440A /* NotesListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27827A7BBE50062440A /* NotesListAssembly.swift */; };
 		8476A27B27A7BD900062440A /* NotesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27A27A7BD900062440A /* NotesListPresenter.swift */; };
+		8476A27D27A7D7680062440A /* NotesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27C27A7D7680062440A /* NotesListRouter.swift */; };
+		8476A28227A7DAFC0062440A /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28127A7DAFC0062440A /* AddNoteViewController.swift */; };
+		8476A28427A7DBA20062440A /* AddNoteAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28327A7DBA20062440A /* AddNoteAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		8476A27627A7B1330062440A /* NotesListTableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableAdapter.swift; sourceTree = "<group>"; };
 		8476A27827A7BBE50062440A /* NotesListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListAssembly.swift; sourceTree = "<group>"; };
 		8476A27A27A7BD900062440A /* NotesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListPresenter.swift; sourceTree = "<group>"; };
+		8476A27C27A7D7680062440A /* NotesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListRouter.swift; sourceTree = "<group>"; };
+		8476A28127A7DAFC0062440A /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		8476A28327A7DBA20062440A /* AddNoteAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,13 +120,7 @@
 				8476A23D27A78B6E0062440A /* AppDelegate.swift */,
 				8476A23F27A78B6E0062440A /* SceneDelegate.swift */,
 				8476A27227A7AB200062440A /* Entity.swift */,
-				8476A24127A78B6E0062440A /* NotesListViewController.swift */,
-				8476A27027A7A6BB0062440A /* NotesListView.swift */,
-				8476A26E27A799540062440A /* NotesListCell.swift */,
-				8476A27627A7B1330062440A /* NotesListTableAdapter.swift */,
-				8476A27427A7ABB00062440A /* NotesListDiffableDataSource.swift */,
-				8476A27A27A7BD900062440A /* NotesListPresenter.swift */,
-				8476A27827A7BBE50062440A /* NotesListAssembly.swift */,
+				8476A27F27A7DA470062440A /* Scenes */,
 				8476A24627A78B700062440A /* Assets.xcassets */,
 				8476A24827A78B700062440A /* LaunchScreen.storyboard */,
 				8476A24B27A78B700062440A /* Info.plist */,
@@ -144,6 +144,39 @@
 				8476A26127A78B700062440A /* Info.plist */,
 			);
 			path = NotesFocusStart2022UITests;
+			sourceTree = "<group>";
+		};
+		8476A27E27A7DA300062440A /* NotesList */ = {
+			isa = PBXGroup;
+			children = (
+				8476A24127A78B6E0062440A /* NotesListViewController.swift */,
+				8476A27027A7A6BB0062440A /* NotesListView.swift */,
+				8476A26E27A799540062440A /* NotesListCell.swift */,
+				8476A27627A7B1330062440A /* NotesListTableAdapter.swift */,
+				8476A27427A7ABB00062440A /* NotesListDiffableDataSource.swift */,
+				8476A27A27A7BD900062440A /* NotesListPresenter.swift */,
+				8476A27827A7BBE50062440A /* NotesListAssembly.swift */,
+				8476A27C27A7D7680062440A /* NotesListRouter.swift */,
+			);
+			path = NotesList;
+			sourceTree = "<group>";
+		};
+		8476A27F27A7DA470062440A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8476A28027A7DAB60062440A /* AddNote */,
+				8476A27E27A7DA300062440A /* NotesList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8476A28027A7DAB60062440A /* AddNote */ = {
+			isa = PBXGroup;
+			children = (
+				8476A28127A7DAFC0062440A /* AddNoteViewController.swift */,
+				8476A28327A7DBA20062440A /* AddNoteAssembly.swift */,
+			);
+			path = AddNote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,9 +312,12 @@
 				8476A27527A7ABB00062440A /* NotesListDiffableDataSource.swift in Sources */,
 				8476A24227A78B6E0062440A /* NotesListViewController.swift in Sources */,
 				8476A23E27A78B6E0062440A /* AppDelegate.swift in Sources */,
+				8476A27D27A7D7680062440A /* NotesListRouter.swift in Sources */,
 				8476A27327A7AB200062440A /* Entity.swift in Sources */,
 				8476A27727A7B1330062440A /* NotesListTableAdapter.swift in Sources */,
 				8476A24027A78B6E0062440A /* SceneDelegate.swift in Sources */,
+				8476A28427A7DBA20062440A /* AddNoteAssembly.swift in Sources */,
+				8476A28227A7DAFC0062440A /* AddNoteViewController.swift in Sources */,
 				8476A27127A7A6BB0062440A /* NotesListView.swift in Sources */,
 				8476A27927A7BBE50062440A /* NotesListAssembly.swift in Sources */,
 				8476A26F27A799540062440A /* NotesListCell.swift in Sources */,
