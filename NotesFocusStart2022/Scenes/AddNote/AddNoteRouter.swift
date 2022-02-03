@@ -5,12 +5,17 @@
 //  Created by pavel mishanin on 31.01.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol AddNoteRouter {
-    
+    func dismissAddNote()
 }
 
-class AddNoteRouterImpl: AddNoteRouter {
+final class AddNoteRouterImpl: AddNoteRouter {
     
+    weak var controller: UIViewController?
+    
+    func dismissAddNote() {
+        controller?.navigationController?.popViewController(animated: false)
+    }
 }

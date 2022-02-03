@@ -20,7 +20,8 @@ final class NotesListTableAdapterImpl: NSObject, NotesListTableAdapter {
     
     weak var delegate: NotesListTableAdapterDelegate?
     private var dataSource: DiffableDataSource?
-    private var notes = Dictionary<SectionIdentifier, [NoteEntity]>()
+    private let notes = Dictionary<SectionIdentifier, [NoteEntity]>()
+    
     
     weak var tableView: UITableView? {
         didSet {
@@ -40,7 +41,7 @@ extension NotesListTableAdapterImpl {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NotesListCell", for: indexPath)
             
             if let cell = cell as? NotesListCell {
-//                cell.configure(note: note)
+                cell.configure(note: note)
             }
             
             return cell

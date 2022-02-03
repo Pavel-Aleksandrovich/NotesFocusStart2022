@@ -15,9 +15,25 @@ final class AddNotePresenterImpl: AddNotePresenter {
      
     private weak var viewController: AddNoteViewController?
     private weak var view: AddNoteView?
+    private var noteSettings: NoteSettings
+    private let router: AddNoteRouter
+    
+    init(noteSettings: NoteSettings, router: AddNoteRouter) {
+        self.noteSettings = noteSettings
+        self.router = router
+    }
     
     func loadView(viewController: AddNoteViewController, view: AddNoteView) {
         self.viewController = viewController
         self.view = view
+        saveNote()
+    }
+    
+    private func saveNote() {
+        
+        view?.saveButtonTappedHandler = { note in
+            self.noteSettings.saveTask(task: note)
+            self.router.dismissAddNote()
+        }
     }
 }

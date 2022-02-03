@@ -18,9 +18,8 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
     
     
     init(presenter: AddNotePresenter) {
-        
-        addNoteView = AddNoteViewImpl()
         self.presenter = presenter
+        addNoteView = AddNoteViewImpl()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,13 +29,14 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
     
     override func loadView() {
         super.loadView()
+        presenter.loadView(viewController: self, view: addNoteView)
         
-        view = addNoteView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.loadView(viewController: self, view: addNoteView)
+        view = addNoteView
+        
         title = "AddNoteViewControllerImpl"
     }
     

@@ -23,7 +23,7 @@ final class NotesListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     func configure(note: NoteEntity) {
-        
+        noteTitle.text = note.title
     }
     
 }
@@ -33,6 +33,9 @@ final class NotesListCell: UITableViewCell {
 private extension NotesListCell {
     
     func configureView() {
+        noteTitle.backgroundColor = .red
+        noteImageView.backgroundColor = .green
+        
         noteImageView.translatesAutoresizingMaskIntoConstraints = false
         noteTitle.translatesAutoresizingMaskIntoConstraints = false
         

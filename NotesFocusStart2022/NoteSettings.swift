@@ -16,7 +16,7 @@ protocol NoteSettings {
     func updateTaskByIndex(task: NoteEntity, index: Int, bool: Bool)
 }
 
-final class NoteSettingsImpl: NoteEntity {
+final class NoteSettingsImpl: NoteSettings {
     
     private enum SettingsKey {
         static let noteEntity = "noteEntity"
@@ -39,19 +39,19 @@ final class NoteSettingsImpl: NoteEntity {
     func saveTask(task: NoteEntity) {
         tasks.insert(task, at: 0)
     }
-    
+
     func removeTask(index: Int) {
         tasks.remove(at: index)
     }
-    
+
     func numberOfTasks() -> Int {
         return tasks.count
     }
-    
+
     func getTaskByIndex(index: Int) -> NoteEntity {
         return tasks[index]
     }
-    
+
     func updateTaskByIndex(task: NoteEntity, index: Int, bool: Bool) {
     }
 }

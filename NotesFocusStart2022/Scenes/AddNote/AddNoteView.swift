@@ -8,6 +8,7 @@
 import UIKit
 
 protocol AddNoteView: UIView {
+    var saveButtonTappedHandler: ((NoteEntity) -> ())? { get set }
 }
 
 final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
@@ -21,6 +22,8 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
     private let stackView = UIStackView()
     private var vConstraints = [NSLayoutConstraint]()
     private var hConstraints = [NSLayoutConstraint]()
+    
+    var saveButtonTappedHandler: ((NoteEntity) -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,6 +44,7 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         saveButton.setTitleColor(.white, for: .normal)
         saveButton.layer.cornerRadius = 25
         saveButton.backgroundColor = .red
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
         titleTextField.backgroundColor = .red
         titleTextField.layer.borderWidth = 2
@@ -73,6 +77,12 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         addSubview(noteImageView)
         
     }
+    
+    @objc func saveButtonTapped() {
+        let note = NoteEntity(title: titleTextField.text ?? "nil")
+        self.saveButtonTappedHandler?(note)
+    }
+    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
