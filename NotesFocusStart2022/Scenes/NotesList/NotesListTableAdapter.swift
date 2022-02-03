@@ -20,7 +20,7 @@ final class NotesListTableAdapterImpl: NSObject, NotesListTableAdapter {
     
     weak var delegate: NotesListTableAdapterDelegate?
     private var dataSource: DiffableDataSource?
-    private var notes = Dictionary<SectionIdentifier, [Entity]>()
+    private var notes = Dictionary<SectionIdentifier, [NoteEntity]>()
     
     weak var tableView: UITableView? {
         didSet {

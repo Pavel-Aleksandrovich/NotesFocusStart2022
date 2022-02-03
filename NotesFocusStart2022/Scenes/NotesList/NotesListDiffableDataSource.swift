@@ -11,10 +11,10 @@ enum SectionIdentifier: String, CaseIterable {
     case listNotes = "listNotes"
 }
 
-typealias Snapshot = NSDiffableDataSourceSnapshot<SectionIdentifier, Entity>
-typealias TableViewData = Dictionary<SectionIdentifier, [Entity]>
+typealias Snapshot = NSDiffableDataSourceSnapshot<SectionIdentifier, NoteEntity>
+typealias TableViewData = Dictionary<SectionIdentifier, [NoteEntity]>
 
-final class DiffableDataSource: UITableViewDiffableDataSource<SectionIdentifier, Entity> {
+final class DiffableDataSource: UITableViewDiffableDataSource<SectionIdentifier, NoteEntity> {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return SectionIdentifier.allCases[section].rawValue
     }
