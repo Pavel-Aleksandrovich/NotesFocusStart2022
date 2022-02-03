@@ -36,11 +36,11 @@ final class NotesListTableAdapterImpl: NSObject, NotesListTableAdapter {
 }
 extension NotesListTableAdapterImpl {
     private func makeDataSource(for tableView: UITableView) -> DiffableDataSource {
-        let dataSource = DiffableDataSource(tableView: tableView) { tableView, indexPath, itemModel in
+        let dataSource = DiffableDataSource(tableView: tableView) { tableView, indexPath, note in
             let cell = tableView.dequeueReusableCell(withIdentifier: "NotesListCell", for: indexPath)
             
             if let cell = cell as? NotesListCell {
-//                cell.update(viewModel: itemViewModel)
+//                cell.configure(note: note)
             }
             
             return cell

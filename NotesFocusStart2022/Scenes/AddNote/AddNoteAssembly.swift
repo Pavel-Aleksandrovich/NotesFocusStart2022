@@ -11,7 +11,8 @@ final class AddNoteAssembly {
     
     static func build() -> UIViewController {
         
-        let viewController = AddNoteViewControllerImpl()
+        let presenter = AddNotePresenterImpl()
+        let viewController = AddNoteViewControllerImpl(presenter: presenter)
         
         return viewController
     }

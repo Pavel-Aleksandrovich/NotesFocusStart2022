@@ -30,12 +30,13 @@ final class NotesListViewControllerImpl: UIViewController, NotesListViewControll
     
     override func loadView() {
         super.loadView()
-        presenter.loadView(viewController: self, view: notesListView)
+        
         view = notesListView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.loadView(viewController: self, view: notesListView)
         addNoteButton()
         title = "NotesListViewControllerImpl"
     }
