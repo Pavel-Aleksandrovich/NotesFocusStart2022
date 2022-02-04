@@ -22,6 +22,7 @@ final class NotesListCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     func configure(note: NoteEntity) {
         noteTitle.text = note.title
         noteImageView.image = note.noteImage
@@ -34,7 +35,8 @@ final class NotesListCell: UITableViewCell {
 private extension NotesListCell {
     
     func configureView() {
-        
+        noteImageView.clipsToBounds = true
+        noteImageView.layer.cornerRadius = self.bounds.height/2
         
         noteImageView.translatesAutoresizingMaskIntoConstraints = false
         noteTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -46,12 +48,12 @@ private extension NotesListCell {
     func configureLayoutConstraints() {
         
         NSLayoutConstraint.activate([
-            noteImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            noteImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             noteImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             noteImageView.widthAnchor.constraint(equalToConstant: self.bounds.height),
             noteImageView.heightAnchor.constraint(equalToConstant: self.bounds.height),
             
-            noteTitle.leadingAnchor.constraint(equalTo: noteImageView.trailingAnchor),
+            noteTitle.leadingAnchor.constraint(equalTo: noteImageView.trailingAnchor, constant: 10),
             noteTitle.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             noteTitle.heightAnchor.constraint(equalToConstant: 30),
             noteTitle.widthAnchor.constraint(equalToConstant: self.bounds.width/2)

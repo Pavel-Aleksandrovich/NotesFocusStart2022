@@ -47,15 +47,15 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         saveButton.backgroundColor = .red
         saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         
-        titleTextField.backgroundColor = .red
-        titleTextField.layer.borderWidth = 2
+        titleTextField.layer.borderWidth = 0.5
+        titleTextField.layer.cornerRadius = 5
         titleTextField.layer.borderColor = UIColor.black.cgColor
         titleTextField.delegate = self
         titleTextField.placeholder = "Entry text"
         titleTextField.textAlignment = .left
         
-        descriptionTextView.backgroundColor = .red
-        descriptionTextView.layer.borderWidth = 2
+        descriptionTextView.layer.borderWidth = 0.5
+        descriptionTextView.layer.cornerRadius = 5
         descriptionTextView.layer.borderColor = UIColor.black.cgColor
         
         noteImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
