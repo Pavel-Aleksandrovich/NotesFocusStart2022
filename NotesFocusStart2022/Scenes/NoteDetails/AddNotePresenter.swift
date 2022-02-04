@@ -16,12 +16,12 @@ final class AddNotePresenterImpl: AddNotePresenter {
      
     private weak var viewController: AddNoteViewController?
     private weak var view: AddNoteView?
-    private var noteSettings: NoteSettings
+    private let interactor: NotesInteractor
     private let router: AddNoteRouter
     private let index: Int?
     
-    init(noteSettings: NoteSettings, router: AddNoteRouter, index: Int?) {
-        self.noteSettings = noteSettings
+    init(interactor: NotesInteractor, router: AddNoteRouter, index: Int?) {
+        self.interactor = interactor
         self.router = router
         self.index = index
     }
@@ -29,32 +29,42 @@ final class AddNotePresenterImpl: AddNotePresenter {
     func loadView(viewController: AddNoteViewController, view: AddNoteView) {
         self.viewController = viewController
         self.view = view
-        saveNote()
+        addSaveButtonTappedHandler()
         getNoteByIndex()
     }
     
     private func getNoteByIndex() {
         guard let index = index else { return }
-        let note = noteSettings.getTaskByIndex(index: index)
+        let note = interactor.getTaskByIndex(index: index)
         view?.configure(note: note)
     }
     
-    private func saveNote() {
-        
+    private func addSaveButtonTappedHandler() {
         view?.saveButtonTappedHandler = { [ weak self ] note in
-            if self?.index != nil {
-                
-                guard let index = self?.index else { return }
-                self?.noteSettings.updateTaskByIndex(index: index, task: note)
-                self?.router.dismissAddNote()
-                
-            } else {
-                
-                self?.noteSettings.saveTask(task: note)
-                self?.router.dismissAddNote()
-            }
-            
+            self?.handleSaveTapped(note: note, index: self?.index)
         }
+    }
+    
+    private func handleSaveTapped(note: NoteEntity, index: Int?) {
+        if needCreateNewNote(index: index) {
+            saveNoteToStorage(note: note)
+        } else {
+            updateNoteByIndex(note: note, index: index!)
+        }
+    }
+    
+    private func needCreateNewNote(index: Int?) -> Bool {
+        return index == nil
+    }
+    
+    private func saveNoteToStorage(note: NoteEntity) {
+        interactor.createTask(task: note)
+        router.dismissAddNote()
+    }
+    
+    private func updateNoteByIndex(note: NoteEntity, index: Int) {
+        interactor.updateNoteByIndex(note: note, index: index)
+        router.dismissAddNote()
     }
     
     func getImageFromImagePicker(image: UIImage) {

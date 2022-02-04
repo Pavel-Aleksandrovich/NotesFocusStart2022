@@ -13,9 +13,13 @@ protocol AddNoteViewController: AnyObject {
 
 final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
     
+    private enum Constants {
+        static let title = "Notes"
+        static let alertTitle = "Choose Image"
+    }
+    
     private let addNoteView: AddNoteView
     private let presenter: AddNotePresenter
-    
     
     init(presenter: AddNotePresenter) {
         self.presenter = presenter
@@ -30,17 +34,15 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
     override func loadView() {
         super.loadView()
         view = addNoteView
-        presenter.loadView(viewController: self, view: addNoteView)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        presenter.loadView(viewController: self, view: addNoteView)
         addNoteButton()
-        title = "AddNoteViewControllerImpl"
+        title = Constants.title
     }
-    
+    //to do rename
     private func addNoteButton() {
         let addNoteButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(showChooseSourceTypeAlertController))
         self.navigationItem.rightBarButtonItem = addNoteButton
@@ -48,7 +50,7 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
     
     @objc func showChooseSourceTypeAlertController() {
         
-        showAlertPhotoPicker(style: .actionSheet, title: "title", message: nil, animated: false) { [ weak self ] (sourceType) in
+        showAlertPhotoPicker(style: .actionSheet, title: Constants.alertTitle, message: nil, animated: false) { [ weak self ] (sourceType) in
             self?.showImagePickerController(sourceType: sourceType)
         }
     }

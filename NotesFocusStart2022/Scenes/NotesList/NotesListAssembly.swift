@@ -12,8 +12,9 @@ final class NotesListAssembly {
     static func build() -> UIViewController {
         
         let noteSettings = NoteSettingsImpl()
+        let interactor = NotesInteractor(noteSettings: noteSettings)
         let router = NotesListRouterImpl()
-        let presenter = NotesListPresenterImpl(router: router, noteSettings: noteSettings)
+        let presenter = NotesListPresenterImpl(router: router, interactor: interactor)
         let viewController = NotesListViewControllerImpl(presenter: presenter)
         router.controller = viewController
         

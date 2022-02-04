@@ -19,16 +19,15 @@ final class NotesListPresenterImpl: NotesListPresenter {
     
     private weak var viewController: NotesListViewController?
     private let router: NotesListRouter
-    private var noteSettings: NoteSettings
+    private let interactor: NotesInteractor
     
-    init(router: NotesListRouter, noteSettings: NoteSettings) {
+    init(router: NotesListRouter, interactor: NotesInteractor) {
         self.router = router
-        self.noteSettings = noteSettings
+        self.interactor = interactor
     }
     
     func loadView(viewController: NotesListViewController) {
         self.viewController = viewController
-        
         presentAddNote()
     }
     
@@ -39,11 +38,11 @@ final class NotesListPresenterImpl: NotesListPresenter {
     }
     
     func getNoteByIndex(index: Int) -> NoteEntity {
-        return noteSettings.getTaskByIndex(index: index)
+        return interactor.getTaskByIndex(index: index)
     }
     
     func numberOfNotes() -> Int {
-        return noteSettings.numberOfTasks()
+        return interactor.numberOfTasks()
     }
     
     func presentNoteDetails(index: Int) {
@@ -51,6 +50,6 @@ final class NotesListPresenterImpl: NotesListPresenter {
     }
     
     func removeNoteAtIndex(index: Int) {
-        noteSettings.removeTask(index: index)
+        interactor.removeTask(index: index)
     }
 }

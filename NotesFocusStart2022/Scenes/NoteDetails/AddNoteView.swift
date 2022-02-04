@@ -15,13 +15,16 @@ protocol AddNoteView: UIView {
 
 final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
     
+    private enum Constants {
+        static let title = "Notes"
+        static let alertTitle = "Choose Image"
+    }
+    
     private let titleTextField = UITextField()
     private let descriptionTextView = UITextView()
     private let saveButton = UIButton()
     private let noteImageView = UIImageView()
     private let scrollView = UIScrollView()
-    private let contentView = UIView()
-    private let stackView = UIStackView()
     private var vConstraints = [NSLayoutConstraint]()
     private var hConstraints = [NSLayoutConstraint]()
     
@@ -36,10 +39,6 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    func getImageFromImagePicker(image: UIImage) {
-        noteImageView.image = image
     }
     
     private func configureView() {
@@ -67,13 +66,15 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         noteImageView.layer.cornerRadius = 25
         noteImageView.clipsToBounds = true
         
-        contentView.backgroundColor = .white
-        
         titleTextField.translatesAutoresizingMaskIntoConstraints = false
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         noteImageView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
+        
+        [titleTextField, saveButton, noteImageView, scrollView, descriptionTextView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
         
         addSubview(scrollView)
         scrollView.addSubview(titleTextField)
@@ -83,8 +84,8 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         
     }
     
-    @objc func pickImageTapped(press: UIGestureRecognizer) {
-        print("pickImageTapped")
+    func getImageFromImagePicker(image: UIImage) {
+        noteImageView.image = image
     }
     
     func configure(note: NoteEntity) {
@@ -94,7 +95,9 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
     }
     
     @objc func saveButtonTapped() {
-        let note = NoteEntity(title: titleTextField.textOrEmptyString, descriptionText: descriptionTextView.textOrEmptyString, noteImage: noteImageView.imageOrEmptyImage)
+        let note = NoteEntity(title: titleTextField.textOrEmptyString,
+                              descriptionText: descriptionTextView.textOrEmptyString,
+                              noteImage: noteImageView.imageOrEmptyImage)
         self.saveButtonTappedHandler?(note)
     }
     
@@ -104,7 +107,7 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         changeViewLayout(traitCollection: traitCollection, previousTraitCollection: previousTraitCollection)
     }
     
-    func changeViewLayout(traitCollection: UITraitCollection, previousTraitCollection: UITraitCollection? = nil) {
+    private func changeViewLayout(traitCollection: UITraitCollection, previousTraitCollection: UITraitCollection? = nil) {
         guard traitCollection.horizontalSizeClass != previousTraitCollection?.horizontalSizeClass ||
                 traitCollection.verticalSizeClass != previousTraitCollection?.verticalSizeClass else { return }
         
@@ -114,17 +117,17 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         }
     }
     
-    func activateCompactLayout() {
+    private func activateCompactLayout() {
         NSLayoutConstraint.deactivate(hConstraints)
         NSLayoutConstraint.activate(vConstraints)
     }
     
-    func activateRegularLayout() {
+    private func activateRegularLayout() {
         NSLayoutConstraint.deactivate(vConstraints)
         NSLayoutConstraint.activate(hConstraints)
     }
     
-    func configureLayoutConstraints() {
+    private func configureLayoutConstraints() {
         
         vConstraints.append(contentsOf: [
             saveButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
@@ -162,8 +165,8 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
             
             noteImageView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
             noteImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            noteImageView.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
-            noteImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
+            noteImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2),
+            noteImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2),
             
             scrollView.leadingAnchor.constraint(equalTo: noteImageView.trailingAnchor, constant: 10),
             scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
@@ -191,14 +194,4 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
     
     
 }
-
-extension AddNoteViewImpl {
-    func imagePicker(info: [UIImagePickerController.InfoKey : Any]) {
-        
-       
-        
-    }
-}
-
-
 

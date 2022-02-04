@@ -14,7 +14,7 @@
 		8476A24A27A78B700062440A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8476A24827A78B700062440A /* LaunchScreen.storyboard */; };
 		8476A25527A78B700062440A /* NotesFocusStart2022Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A25427A78B700062440A /* NotesFocusStart2022Tests.swift */; };
 		8476A26027A78B700062440A /* NotesFocusStart2022UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A25F27A78B700062440A /* NotesFocusStart2022UITests.swift */; };
-		8476A26F27A799540062440A /* NotesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A26E27A799540062440A /* NotesListCell.swift */; };
+		8476A26F27A799540062440A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A26E27A799540062440A /* NoteCell.swift */; };
 		8476A27327A7AB200062440A /* NoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27227A7AB200062440A /* NoteEntity.swift */; };
 		8476A27927A7BBE50062440A /* NotesListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27827A7BBE50062440A /* NotesListAssembly.swift */; };
 		8476A27B27A7BD900062440A /* NotesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27A27A7BD900062440A /* NotesListPresenter.swift */; };
@@ -29,6 +29,7 @@
 		8476A29727AD1ECE0062440A /* UITextField Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29627AD1ECE0062440A /* UITextField Extension.swift */; };
 		8476A29927AD1EDF0062440A /* UITextView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29827AD1EDF0062440A /* UITextView Extension.swift */; };
 		8476A29B27AD1EF00062440A /* UIImageView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29A27AD1EF00062440A /* UIImageView Extension.swift */; };
+		8476A29D27AD6B1D0062440A /* NotesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29C27AD6B1D0062440A /* NotesInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +63,7 @@
 		8476A25B27A78B700062440A /* NotesFocusStart2022UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesFocusStart2022UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8476A25F27A78B700062440A /* NotesFocusStart2022UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesFocusStart2022UITests.swift; sourceTree = "<group>"; };
 		8476A26127A78B700062440A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8476A26E27A799540062440A /* NotesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListCell.swift; sourceTree = "<group>"; };
+		8476A26E27A799540062440A /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		8476A27227A7AB200062440A /* NoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEntity.swift; sourceTree = "<group>"; };
 		8476A27827A7BBE50062440A /* NotesListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListAssembly.swift; sourceTree = "<group>"; };
 		8476A27A27A7BD900062440A /* NotesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListPresenter.swift; sourceTree = "<group>"; };
@@ -77,6 +78,7 @@
 		8476A29627AD1ECE0062440A /* UITextField Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField Extension.swift"; sourceTree = "<group>"; };
 		8476A29827AD1EDF0062440A /* UITextView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView Extension.swift"; sourceTree = "<group>"; };
 		8476A29A27AD1EF00062440A /* UIImageView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView Extension.swift"; sourceTree = "<group>"; };
+		8476A29C27AD6B1D0062440A /* NotesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				8476A29527AD1D6C0062440A /* Application */,
-				8476A29427AD1C9D0062440A /* Store */,
 				8476A29327AD1C8F0062440A /* Common */,
 				8476A29227AD1C400062440A /* Extensions */,
 				8476A27F27A7DA470062440A /* Scenes */,
@@ -159,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				8476A24127A78B6E0062440A /* NotesListViewController.swift */,
-				8476A26E27A799540062440A /* NotesListCell.swift */,
+				8476A26E27A799540062440A /* NoteCell.swift */,
 				8476A27A27A7BD900062440A /* NotesListPresenter.swift */,
 				8476A27827A7BBE50062440A /* NotesListAssembly.swift */,
 				8476A27C27A7D7680062440A /* NotesListRouter.swift */,
@@ -170,13 +171,13 @@
 		8476A27F27A7DA470062440A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8476A28027A7DAB60062440A /* AddNote */,
+				8476A28027A7DAB60062440A /* NoteDetails */,
 				8476A27E27A7DA300062440A /* NotesList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		8476A28027A7DAB60062440A /* AddNote */ = {
+		8476A28027A7DAB60062440A /* NoteDetails */ = {
 			isa = PBXGroup;
 			children = (
 				8476A28127A7DAFC0062440A /* AddNoteViewController.swift */,
@@ -185,7 +186,7 @@
 				8476A28327A7DBA20062440A /* AddNoteAssembly.swift */,
 				8476A28927A7EA060062440A /* AddNoteRouter.swift */,
 			);
-			path = AddNote;
+			path = NoteDetails;
 			sourceTree = "<group>";
 		};
 		8476A28F27AD1B400062440A /* Supports */ = {
@@ -213,16 +214,10 @@
 			isa = PBXGroup;
 			children = (
 				8476A27227A7AB200062440A /* NoteEntity.swift */,
+				8476A28B27ABF2B20062440A /* NoteSettings.swift */,
+				8476A29C27AD6B1D0062440A /* NotesInteractor.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		8476A29427AD1C9D0062440A /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				8476A28B27ABF2B20062440A /* NoteSettings.swift */,
-			);
-			path = Store;
 			sourceTree = "<group>";
 		};
 		8476A29527AD1D6C0062440A /* Application */ = {
@@ -364,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8476A28E27AD05050062440A /* UIViewController Extension.swift in Sources */,
+				8476A29D27AD6B1D0062440A /* NotesInteractor.swift in Sources */,
 				8476A28827A7E6B40062440A /* AddNotePresenter.swift in Sources */,
 				8476A27B27A7BD900062440A /* NotesListPresenter.swift in Sources */,
 				8476A24227A78B6E0062440A /* NotesListViewController.swift in Sources */,
@@ -379,7 +375,7 @@
 				8476A28627A7E5570062440A /* AddNoteView.swift in Sources */,
 				8476A29B27AD1EF00062440A /* UIImageView Extension.swift in Sources */,
 				8476A28A27A7EA060062440A /* AddNoteRouter.swift in Sources */,
-				8476A26F27A799540062440A /* NotesListCell.swift in Sources */,
+				8476A26F27A799540062440A /* NoteCell.swift in Sources */,
 				8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

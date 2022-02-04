@@ -13,6 +13,12 @@ protocol NotesListViewController: AnyObject {
 
 final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITableViewDataSource, NotesListViewController {
     
+    private enum Constants {
+        static let cellIdentifier = "cellIdentifier"
+        static let rowHeight: CGFloat = 80
+        static let title = "Notes"
+    }
+    
     private let presenter: NotesListPresenter
     private let tableView = UITableView()
     
@@ -39,21 +45,22 @@ final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, 
         tableView.reloadData()
     }
     
-    func configureView() {
-        title = "NotesListViewControllerImpl"
+    private func configureView() {
+        title = Constants.title
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(NotesListCell.self, forCellReuseIdentifier: "cell")
-        view.backgroundColor = .white
+        tableView.register(NoteCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
+        view.backgroundColor = .white
         view.addSubview(tableView)
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -67,7 +74,7 @@ final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NotesListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! NoteCell
         
         let note = presenter.getNoteByIndex(index: indexPath.row)
         cell.configure(note: note)
@@ -80,7 +87,7 @@ final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        80
+        Constants.rowHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -28,7 +28,6 @@ class NoteEntity: NSObject, NSCoding {
         title = coder.decodeObject(forKey: SettingsKey.title) as? String ?? ""
         descriptionText = coder.decodeObject(forKey: SettingsKey.descriptionText) as? String ?? ""
         noteImage = coder.decodeObject(forKey: SettingsKey.noteImage) as? UIImage ?? #imageLiteral(resourceName: "DefaultProfileImage")
-        
     }
     
     func encode(with coder: NSCoder) {
@@ -36,5 +35,4 @@ class NoteEntity: NSObject, NSCoding {
         coder.encode(descriptionText, forKey: SettingsKey.descriptionText)
         coder.encode(noteImage, forKey: SettingsKey.noteImage)
     }
-    
 }

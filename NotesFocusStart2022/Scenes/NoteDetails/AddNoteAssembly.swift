@@ -13,7 +13,8 @@ final class AddNoteAssembly {
         
         let router = AddNoteRouterImpl()
         let noteSettings = NoteSettingsImpl()
-        let presenter = AddNotePresenterImpl(noteSettings: noteSettings, router: router, index: index)
+        let interactor = NotesInteractor(noteSettings: noteSettings)
+        let presenter = AddNotePresenterImpl(interactor: interactor, router: router, index: index)
         let viewController = AddNoteViewControllerImpl(presenter: presenter)
         router.controller = viewController
         

@@ -8,21 +8,20 @@
 import Foundation
 
 protocol NoteSettings {
-    var tasks: [NoteEntity]! { get set }
     func saveTask(task: NoteEntity)
     func removeTask(index: Int)
     func numberOfTasks() -> Int
     func getTaskByIndex(index: Int) -> NoteEntity
-    func updateTaskByIndex(index: Int, task: NoteEntity)
+    func updateNoteByIndex(note: NoteEntity, index: Int)
 }
-
+//NotesStorage
 final class NoteSettingsImpl: NoteSettings {
     
     private enum SettingsKey {
         static let noteEntity = "noteEntity"
     }
     
-    var tasks: [NoteEntity]! {
+    private var tasks: [NoteEntity]! {
         get {
             guard let data = UserDefaults.standard.object(forKey: SettingsKey.noteEntity) as? Data,
                   let decodeModel = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [NoteEntity] else { return [NoteEntity(title: "title", descriptionText: "description", noteImage: #imageLiteral(resourceName: "DefaultProfileImage"))] }
@@ -52,8 +51,8 @@ final class NoteSettingsImpl: NoteSettings {
         return tasks[index]
     }
 
-    func updateTaskByIndex(index: Int, task: NoteEntity) {
+    func updateNoteByIndex(note: NoteEntity, index: Int) {
         tasks.remove(at: index)
-        tasks.insert(task, at: index)
+        tasks.insert(note, at: index)
     }
 }
