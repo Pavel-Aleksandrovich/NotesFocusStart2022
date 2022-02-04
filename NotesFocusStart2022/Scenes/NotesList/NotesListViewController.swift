@@ -8,7 +8,7 @@
 import UIKit
 
 protocol NotesListViewController: AnyObject {
-    var addNoteButtonTappedHandler: ((UIViewController) -> ())? { get set }
+    var addNoteButtonTappedHandler: (() -> ())? { get set }
 }
 
 class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITableViewDataSource, NotesListViewController {
@@ -16,7 +16,7 @@ class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITabl
     private let presenter: NotesListPresenter
     private let tableView = UITableView()
     
-    var addNoteButtonTappedHandler: ((UIViewController) -> ())?
+    var addNoteButtonTappedHandler: (() -> ())?
     
     init(presenter: NotesListPresenter) {
         self.presenter = presenter
@@ -63,7 +63,7 @@ class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITabl
     }
     
     @objc private func addNoteButtonTapped() {
-        self.addNoteButtonTappedHandler?(self)
+        self.addNoteButtonTappedHandler?()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -84,6 +84,7 @@ class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.presentNoteDetails(index: indexPath.row)
     }
 }
 

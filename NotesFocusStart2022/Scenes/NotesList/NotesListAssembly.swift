@@ -15,6 +15,7 @@ final class NotesListAssembly {
         let router = NotesListRouterImpl()
         let presenter = NotesListPresenterImpl(router: router, noteSettings: noteSettings)
         let viewController = NotesListViewControllerImpl(presenter: presenter)
+        router.controller = viewController
         
         return viewController
     }

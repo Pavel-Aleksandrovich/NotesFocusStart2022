@@ -9,11 +9,11 @@ import UIKit
 
 final class AddNoteAssembly {
     
-    static func build() -> UIViewController {
+    static func build(index: Int?) -> UIViewController {
         
         let router = AddNoteRouterImpl()
         let noteSettings = NoteSettingsImpl()
-        let presenter = AddNotePresenterImpl(noteSettings: noteSettings, router: router)
+        let presenter = AddNotePresenterImpl(noteSettings: noteSettings, router: router, index: index)
         let viewController = AddNoteViewControllerImpl(presenter: presenter)
         router.controller = viewController
         

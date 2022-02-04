@@ -11,6 +11,7 @@ protocol NotesListPresenter {
     func loadView(viewController: NotesListViewController)
     func getNoteByIndex(index: Int) -> NoteEntity
     func numberOfNotes() -> Int
+    func presentNoteDetails(index: Int)
 }
 
 final class NotesListPresenterImpl: NotesListPresenter{
@@ -31,8 +32,8 @@ final class NotesListPresenterImpl: NotesListPresenter{
     }
     
     private func presentAddNote() {
-        viewController?.addNoteButtonTappedHandler = { controller in
-            self.router.presentAddNote(controller: controller)
+        viewController?.addNoteButtonTappedHandler = { [weak self] in
+            self?.router.presentAddNote(index: nil)
         }
     }
     
@@ -42,5 +43,9 @@ final class NotesListPresenterImpl: NotesListPresenter{
     
     func numberOfNotes() -> Int {
         return noteSettings.numberOfTasks()
+    }
+    
+    func presentNoteDetails(index: Int) {
+        router.presentAddNote(index: index)
     }
 }

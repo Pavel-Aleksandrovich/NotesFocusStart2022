@@ -17,16 +17,25 @@ final class AddNotePresenterImpl: AddNotePresenter {
     private weak var view: AddNoteView?
     private var noteSettings: NoteSettings
     private let router: AddNoteRouter
+    private let index: Int?
     
-    init(noteSettings: NoteSettings, router: AddNoteRouter) {
+    init(noteSettings: NoteSettings, router: AddNoteRouter, index: Int?) {
         self.noteSettings = noteSettings
         self.router = router
+        self.index = index
     }
     
     func loadView(viewController: AddNoteViewController, view: AddNoteView) {
         self.viewController = viewController
         self.view = view
         saveNote()
+        getNoteByIndex()
+    }
+    
+    private func getNoteByIndex() {
+        guard let index = index else { return }
+        let note = noteSettings.getTaskByIndex(index: index)
+        view?.configure(note: note)
     }
     
     private func saveNote() {

@@ -9,6 +9,7 @@ import UIKit
 
 protocol AddNoteView: UIView {
     var saveButtonTappedHandler: ((NoteEntity) -> ())? { get set }
+    func configure(note: NoteEntity)
 }
 
 final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
@@ -76,6 +77,10 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         addSubview(saveButton)
         addSubview(noteImageView)
         
+    }
+    
+    func configure(note: NoteEntity) {
+        titleTextField.text = note.title
     }
     
     @objc func saveButtonTapped() {

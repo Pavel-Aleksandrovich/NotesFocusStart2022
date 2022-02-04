@@ -8,13 +8,16 @@
 import UIKit
 
 protocol NotesListRouter {
-    func presentAddNote(controller: UIViewController)
+    func presentAddNote(index: Int?)
 }
 
 final class NotesListRouterImpl: NotesListRouter {
     
-    func presentAddNote(controller: UIViewController) {
-        let addNote = AddNoteAssembly.build()
-        controller.navigationController?.pushViewController(addNote, animated: false)
+    weak var controller: UIViewController?
+    
+    func presentAddNote(index: Int?) {
+        let addNote = AddNoteAssembly.build(index: index)
+        controller?.navigationController?.pushViewController(addNote, animated: false)
     }
+    
 }
