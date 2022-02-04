@@ -9,6 +9,7 @@ import UIKit
 
 protocol AddNotePresenter {
     func loadView(viewController: AddNoteViewController, view: AddNoteView)
+    func getImageFromImagePicker(image: UIImage)
 }
 
 final class AddNotePresenterImpl: AddNotePresenter {
@@ -54,5 +55,9 @@ final class AddNotePresenterImpl: AddNotePresenter {
             }
             
         }
+    }
+    
+    func getImageFromImagePicker(image: UIImage) {
+        view?.getImageFromImagePicker(image: image)
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 protocol AddNoteView: UIView {
     var saveButtonTappedHandler: ((NoteEntity) -> ())? { get set }
     func configure(note: NoteEntity)
+    func getImageFromImagePicker(image: UIImage)
 }
 
 final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
@@ -37,7 +38,11 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureView() {
+    func getImageFromImagePicker(image: UIImage) {
+        noteImageView.image = image
+    }
+    
+    private func configureView() {
         
         self.backgroundColor = .white
         
@@ -76,6 +81,10 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         addSubview(saveButton)
         addSubview(noteImageView)
         
+    }
+    
+    @objc func pickImageTapped(press: UIGestureRecognizer) {
+        print("pickImageTapped")
     }
     
     func configure(note: NoteEntity) {
@@ -186,11 +195,7 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
 extension AddNoteViewImpl {
     func imagePicker(info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            self.noteImageView.image = editedImage.withRenderingMode(.alwaysOriginal)
-        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.noteImageView.image = originalImage.withRenderingMode(.alwaysOriginal)
-        }
+       
         
     }
 }

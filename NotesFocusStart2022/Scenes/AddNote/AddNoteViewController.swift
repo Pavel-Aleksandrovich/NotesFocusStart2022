@@ -29,22 +29,26 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
     
     override func loadView() {
         super.loadView()
+        view = addNoteView
         presenter.loadView(viewController: self, view: addNoteView)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = addNoteView
         
+        addNoteButton()
         title = "AddNoteViewControllerImpl"
     }
-    func showChooseSourceTypeAlertController(style: UIAlertController.Style,
-                                             title: String?,
-                                             message: String?,
-                                             animated: Bool) {
+    
+    private func addNoteButton() {
+        let addNoteButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(showChooseSourceTypeAlertController))
+        self.navigationItem.rightBarButtonItem = addNoteButton
+    }
+    
+    @objc func showChooseSourceTypeAlertController() {
         
-        showAlertPhotoPicker(style: style, title: title, message: message, animated: animated) { [ weak self ] (sourceType) in
+        showAlertPhotoPicker(style: .actionSheet, title: "title", message: nil, animated: false) { [ weak self ] (sourceType) in
             self?.showImagePickerController(sourceType: sourceType)
         }
     }
@@ -63,6 +67,14 @@ extension AddNoteViewControllerImpl:
     UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            let image = editedImage.withRenderingMode(.alwaysOriginal)
+            presenter.getImageFromImagePicker(image: image)
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            let image = originalImage.withRenderingMode(.alwaysOriginal)
+            presenter.getImageFromImagePicker(image: image)
+        }
         
         dismiss(animated: true, completion: nil)
     }
