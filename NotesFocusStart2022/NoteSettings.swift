@@ -13,7 +13,7 @@ protocol NoteSettings {
     func removeTask(index: Int)
     func numberOfTasks() -> Int
     func getTaskByIndex(index: Int) -> NoteEntity
-    func updateTaskByIndex(task: NoteEntity, index: Int, bool: Bool)
+    func updateTaskByIndex(index: Int, task: NoteEntity)
 }
 
 final class NoteSettingsImpl: NoteSettings {
@@ -52,6 +52,8 @@ final class NoteSettingsImpl: NoteSettings {
         return tasks[index]
     }
 
-    func updateTaskByIndex(task: NoteEntity, index: Int, bool: Bool) {
+    func updateTaskByIndex(index: Int, task: NoteEntity) {
+        tasks.remove(at: index)
+        tasks.insert(task, at: index)
     }
 }
