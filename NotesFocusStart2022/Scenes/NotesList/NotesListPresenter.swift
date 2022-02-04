@@ -12,6 +12,7 @@ protocol NotesListPresenter {
     func getNoteByIndex(index: Int) -> NoteEntity
     func numberOfNotes() -> Int
     func presentNoteDetails(index: Int)
+    func removeNoteAtIndex(index: Int)
 }
 
 final class NotesListPresenterImpl: NotesListPresenter{
@@ -47,5 +48,9 @@ final class NotesListPresenterImpl: NotesListPresenter{
     
     func presentNoteDetails(index: Int) {
         router.presentAddNote(index: index)
+    }
+    
+    func removeNoteAtIndex(index: Int) {
+        noteSettings.removeTask(index: index)
     }
 }

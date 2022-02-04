@@ -11,7 +11,7 @@ protocol NotesListViewController: AnyObject {
     var addNoteButtonTappedHandler: (() -> ())? { get set }
 }
 
-class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITableViewDataSource, NotesListViewController {
+final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITableViewDataSource, NotesListViewController {
     
     private let presenter: NotesListPresenter
     private let tableView = UITableView()
@@ -85,6 +85,17 @@ class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.presentNoteDetails(index: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter.removeNoteAtIndex(index: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }
 

@@ -39,5 +39,34 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
         
         title = "AddNoteViewControllerImpl"
     }
+    func showChooseSourceTypeAlertController(style: UIAlertController.Style,
+                                             title: String?,
+                                             message: String?,
+                                             animated: Bool) {
+        
+        showAlertPhotoPicker(style: style, title: title, message: message, animated: animated) { [ weak self ] (sourceType) in
+            self?.showImagePickerController(sourceType: sourceType)
+        }
+    }
+    
+    private func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        present(imagePickerController, animated: true)
+    }
+}
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension AddNoteViewControllerImpl:
+    UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        dismiss(animated: true, completion: nil)
+    }
     
 }
+
+

@@ -42,10 +42,13 @@ final class AddNotePresenterImpl: AddNotePresenter {
         
         view?.saveButtonTappedHandler = { [ weak self ] note in
             if self?.index != nil {
+                
                 guard let index = self?.index else { return }
                 self?.noteSettings.updateTaskByIndex(index: index, task: note)
                 self?.router.dismissAddNote()
+                
             } else {
+                
                 self?.noteSettings.saveTask(task: note)
                 self?.router.dismissAddNote()
             }

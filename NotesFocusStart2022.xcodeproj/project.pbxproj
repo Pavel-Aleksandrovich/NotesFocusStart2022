@@ -25,6 +25,7 @@
 		8476A28827A7E6B40062440A /* AddNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28727A7E6B40062440A /* AddNotePresenter.swift */; };
 		8476A28A27A7EA060062440A /* AddNoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28927A7EA060062440A /* AddNoteRouter.swift */; };
 		8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28B27ABF2B20062440A /* NoteSettings.swift */; };
+		8476A28E27AD05050062440A /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28D27AD05050062440A /* Extension + UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		8476A28727A7E6B40062440A /* AddNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotePresenter.swift; sourceTree = "<group>"; };
 		8476A28927A7EA060062440A /* AddNoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteRouter.swift; sourceTree = "<group>"; };
 		8476A28B27ABF2B20062440A /* NoteSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSettings.swift; sourceTree = "<group>"; };
+		8476A28D27AD05050062440A /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				8476A23F27A78B6E0062440A /* SceneDelegate.swift */,
 				8476A28B27ABF2B20062440A /* NoteSettings.swift */,
 				8476A27227A7AB200062440A /* NoteEntity.swift */,
+				8476A28D27AD05050062440A /* Extension + UIViewController.swift */,
 				8476A27F27A7DA470062440A /* Scenes */,
 				8476A24627A78B700062440A /* Assets.xcassets */,
 				8476A24827A78B700062440A /* LaunchScreen.storyboard */,
@@ -311,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8476A28E27AD05050062440A /* Extension + UIViewController.swift in Sources */,
 				8476A28827A7E6B40062440A /* AddNotePresenter.swift in Sources */,
 				8476A27B27A7BD900062440A /* NotesListPresenter.swift in Sources */,
 				8476A24227A78B6E0062440A /* NotesListViewController.swift in Sources */,

@@ -52,7 +52,6 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         titleTextField.layer.borderColor = UIColor.black.cgColor
         titleTextField.delegate = self
         titleTextField.placeholder = "Entry text"
-//        titleTextField.text = "Title Title Title Title Title Title Title Title Title Title Title Title Title Title Title"
         titleTextField.textAlignment = .left
         
         descriptionTextView.backgroundColor = .red
@@ -81,10 +80,11 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
     
     func configure(note: NoteEntity) {
         titleTextField.text = note.title
+        descriptionTextView.text = note.descriptionText
     }
     
     @objc func saveButtonTapped() {
-        let note = NoteEntity(title: titleTextField.text ?? "nil")
+        let note = NoteEntity(title: titleTextField.text ?? "nil", descriptionText: descriptionTextView.text ?? "nil")
         self.saveButtonTappedHandler?(note)
     }
     
@@ -178,4 +178,21 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         
         changeViewLayout(traitCollection: traitCollection)
     }
+    
+    
 }
+
+extension AddNoteViewImpl {
+    func imagePicker(info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            self.noteImageView.image = editedImage.withRenderingMode(.alwaysOriginal)
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.noteImageView.image = originalImage.withRenderingMode(.alwaysOriginal)
+        }
+        
+    }
+}
+
+
+
