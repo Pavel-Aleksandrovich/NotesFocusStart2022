@@ -24,6 +24,7 @@ final class NotesListCell: UITableViewCell {
     }
     func configure(note: NoteEntity) {
         noteTitle.text = note.title
+        noteImageView.image = note.noteImage
     }
     
 }
@@ -33,8 +34,7 @@ final class NotesListCell: UITableViewCell {
 private extension NotesListCell {
     
     func configureView() {
-        noteTitle.backgroundColor = .red
-        noteImageView.backgroundColor = .green
+        
         
         noteImageView.translatesAutoresizingMaskIntoConstraints = false
         noteTitle.translatesAutoresizingMaskIntoConstraints = false

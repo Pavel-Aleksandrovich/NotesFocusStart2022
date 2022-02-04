@@ -25,7 +25,10 @@
 		8476A28827A7E6B40062440A /* AddNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28727A7E6B40062440A /* AddNotePresenter.swift */; };
 		8476A28A27A7EA060062440A /* AddNoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28927A7EA060062440A /* AddNoteRouter.swift */; };
 		8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28B27ABF2B20062440A /* NoteSettings.swift */; };
-		8476A28E27AD05050062440A /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28D27AD05050062440A /* Extension + UIViewController.swift */; };
+		8476A28E27AD05050062440A /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28D27AD05050062440A /* UIViewController Extension.swift */; };
+		8476A29727AD1ECE0062440A /* UITextField Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29627AD1ECE0062440A /* UITextField Extension.swift */; };
+		8476A29927AD1EDF0062440A /* UITextView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29827AD1EDF0062440A /* UITextView Extension.swift */; };
+		8476A29B27AD1EF00062440A /* UIImageView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29A27AD1EF00062440A /* UIImageView Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +73,10 @@
 		8476A28727A7E6B40062440A /* AddNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotePresenter.swift; sourceTree = "<group>"; };
 		8476A28927A7EA060062440A /* AddNoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteRouter.swift; sourceTree = "<group>"; };
 		8476A28B27ABF2B20062440A /* NoteSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSettings.swift; sourceTree = "<group>"; };
-		8476A28D27AD05050062440A /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		8476A28D27AD05050062440A /* UIViewController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController Extension.swift"; sourceTree = "<group>"; };
+		8476A29627AD1ECE0062440A /* UITextField Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField Extension.swift"; sourceTree = "<group>"; };
+		8476A29827AD1EDF0062440A /* UITextView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView Extension.swift"; sourceTree = "<group>"; };
+		8476A29A27AD1EF00062440A /* UIImageView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,15 +127,12 @@
 		8476A23C27A78B6E0062440A /* NotesFocusStart2022 */ = {
 			isa = PBXGroup;
 			children = (
-				8476A23D27A78B6E0062440A /* AppDelegate.swift */,
-				8476A23F27A78B6E0062440A /* SceneDelegate.swift */,
-				8476A28B27ABF2B20062440A /* NoteSettings.swift */,
-				8476A27227A7AB200062440A /* NoteEntity.swift */,
-				8476A28D27AD05050062440A /* Extension + UIViewController.swift */,
+				8476A29527AD1D6C0062440A /* Application */,
+				8476A29427AD1C9D0062440A /* Store */,
+				8476A29327AD1C8F0062440A /* Common */,
+				8476A29227AD1C400062440A /* Extensions */,
 				8476A27F27A7DA470062440A /* Scenes */,
-				8476A24627A78B700062440A /* Assets.xcassets */,
-				8476A24827A78B700062440A /* LaunchScreen.storyboard */,
-				8476A24B27A78B700062440A /* Info.plist */,
+				8476A28F27AD1B400062440A /* Supports */,
 			);
 			path = NotesFocusStart2022;
 			sourceTree = "<group>";
@@ -183,6 +186,52 @@
 				8476A28927A7EA060062440A /* AddNoteRouter.swift */,
 			);
 			path = AddNote;
+			sourceTree = "<group>";
+		};
+		8476A28F27AD1B400062440A /* Supports */ = {
+			isa = PBXGroup;
+			children = (
+				8476A24627A78B700062440A /* Assets.xcassets */,
+				8476A24827A78B700062440A /* LaunchScreen.storyboard */,
+				8476A24B27A78B700062440A /* Info.plist */,
+			);
+			path = Supports;
+			sourceTree = "<group>";
+		};
+		8476A29227AD1C400062440A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8476A28D27AD05050062440A /* UIViewController Extension.swift */,
+				8476A29627AD1ECE0062440A /* UITextField Extension.swift */,
+				8476A29827AD1EDF0062440A /* UITextView Extension.swift */,
+				8476A29A27AD1EF00062440A /* UIImageView Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8476A29327AD1C8F0062440A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8476A27227A7AB200062440A /* NoteEntity.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8476A29427AD1C9D0062440A /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				8476A28B27ABF2B20062440A /* NoteSettings.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		8476A29527AD1D6C0062440A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8476A23D27A78B6E0062440A /* AppDelegate.swift */,
+				8476A23F27A78B6E0062440A /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8476A28E27AD05050062440A /* Extension + UIViewController.swift in Sources */,
+				8476A28E27AD05050062440A /* UIViewController Extension.swift in Sources */,
 				8476A28827A7E6B40062440A /* AddNotePresenter.swift in Sources */,
 				8476A27B27A7BD900062440A /* NotesListPresenter.swift in Sources */,
 				8476A24227A78B6E0062440A /* NotesListViewController.swift in Sources */,
@@ -324,8 +373,11 @@
 				8476A24027A78B6E0062440A /* SceneDelegate.swift in Sources */,
 				8476A28427A7DBA20062440A /* AddNoteAssembly.swift in Sources */,
 				8476A28227A7DAFC0062440A /* AddNoteViewController.swift in Sources */,
+				8476A29727AD1ECE0062440A /* UITextField Extension.swift in Sources */,
 				8476A27927A7BBE50062440A /* NotesListAssembly.swift in Sources */,
+				8476A29927AD1EDF0062440A /* UITextView Extension.swift in Sources */,
 				8476A28627A7E5570062440A /* AddNoteView.swift in Sources */,
+				8476A29B27AD1EF00062440A /* UIImageView Extension.swift in Sources */,
 				8476A28A27A7EA060062440A /* AddNoteRouter.swift in Sources */,
 				8476A26F27A799540062440A /* NotesListCell.swift in Sources */,
 				8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */,
@@ -498,7 +550,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZRD3MXDYZ;
-				INFOPLIST_FILE = NotesFocusStart2022/Info.plist;
+				INFOPLIST_FILE = NotesFocusStart2022/Supports/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZRD3MXDYZ;
-				INFOPLIST_FILE = NotesFocusStart2022/Info.plist;
+				INFOPLIST_FILE = NotesFocusStart2022/Supports/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

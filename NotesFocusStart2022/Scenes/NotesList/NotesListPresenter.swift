@@ -15,7 +15,7 @@ protocol NotesListPresenter {
     func removeNoteAtIndex(index: Int)
 }
 
-final class NotesListPresenterImpl: NotesListPresenter{
+final class NotesListPresenterImpl: NotesListPresenter {
     
     private weak var viewController: NotesListViewController?
     private let router: NotesListRouter

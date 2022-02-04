@@ -25,7 +25,7 @@ final class NoteSettingsImpl: NoteSettings {
     var tasks: [NoteEntity]! {
         get {
             guard let data = UserDefaults.standard.object(forKey: SettingsKey.noteEntity) as? Data,
-                  let decodeModel = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [NoteEntity] else { return [NoteEntity(title: "title", descriptionText: "description")] }
+                  let decodeModel = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [NoteEntity] else { return [NoteEntity(title: "title", descriptionText: "description", noteImage: #imageLiteral(resourceName: "DefaultProfileImage"))] }
             return decodeModel
         } set {
             if let model = newValue {

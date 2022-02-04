@@ -58,7 +58,7 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         descriptionTextView.layer.borderWidth = 2
         descriptionTextView.layer.borderColor = UIColor.black.cgColor
         
-        noteImageView.backgroundColor = .gray
+        noteImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
         noteImageView.layer.cornerRadius = 25
         noteImageView.clipsToBounds = true
         
@@ -81,10 +81,11 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
     func configure(note: NoteEntity) {
         titleTextField.text = note.title
         descriptionTextView.text = note.descriptionText
+        noteImageView.image = note.noteImage
     }
     
     @objc func saveButtonTapped() {
-        let note = NoteEntity(title: titleTextField.text ?? "nil", descriptionText: descriptionTextView.text ?? "nil")
+        let note = NoteEntity(title: titleTextField.textOrEmptyString, descriptionText: descriptionTextView.textOrEmptyString, noteImage: noteImageView.imageOrEmptyImage)
         self.saveButtonTappedHandler?(note)
     }
     
