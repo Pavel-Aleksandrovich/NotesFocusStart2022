@@ -11,15 +11,14 @@ protocol NotesListViewController: AnyObject {
     var addNoteButtonTappedHandler: ((UIViewController) -> ())? { get set }
 }
 
-final class NotesListViewControllerImpl: UIViewController, NotesListViewController {
+class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITableViewDataSource, NotesListViewController {
     
-    private let notesListView: NotesListView
     private let presenter: NotesListPresenter
+    private let tableView = UITableView()
     
     var addNoteButtonTappedHandler: ((UIViewController) -> ())?
     
     init(presenter: NotesListPresenter) {
-        self.notesListView = NotesListViewImpl()
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,17 +27,34 @@ final class NotesListViewControllerImpl: UIViewController, NotesListViewControll
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
-        super.loadView()
-        
-        view = notesListView
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.loadView(viewController: self, view: notesListView)
+        presenter.loadView(viewController: self)
         addNoteButton()
+        configureView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    func configureView() {
         title = "NotesListViewControllerImpl"
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(NotesListCell.self, forCellReuseIdentifier: "cell")
+        view.backgroundColor = .white
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
     
     private func addNoteButton() {
@@ -48,6 +64,26 @@ final class NotesListViewControllerImpl: UIViewController, NotesListViewControll
     
     @objc private func addNoteButtonTapped() {
         self.addNoteButtonTappedHandler?(self)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NotesListCell
+        
+        let note = presenter.getNoteByIndex(index: indexPath.row)
+        cell.configure(note: note)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        presenter.numberOfNotes()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
 

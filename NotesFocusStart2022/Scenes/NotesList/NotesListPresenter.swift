@@ -8,28 +8,24 @@
 import UIKit
 
 protocol NotesListPresenter {
-    func loadView(viewController: NotesListViewController, view: NotesListView)
+    func loadView(viewController: NotesListViewController)
+    func getNoteByIndex(index: Int) -> NoteEntity
+    func numberOfNotes() -> Int
 }
 
-final class NotesListPresenterImpl: NotesListPresenter, NotesListTableAdapterDelegate {
-    
+final class NotesListPresenterImpl: NotesListPresenter{
     
     private weak var viewController: NotesListViewController?
-    private weak var view: NotesListView?
-    private let tableAdapter: NotesListTableAdapter
     private let router: NotesListRouter
+    private var noteSettings: NoteSettings
     
-    init(tableAdapter: NotesListTableAdapter, router: NotesListRouter) {
-        self.tableAdapter = tableAdapter
+    init(router: NotesListRouter, noteSettings: NoteSettings) {
         self.router = router
+        self.noteSettings = noteSettings
     }
     
-    func loadView(viewController: NotesListViewController, view: NotesListView) {
+    func loadView(viewController: NotesListViewController) {
         self.viewController = viewController
-        self.view = view
-        
-        tableAdapter.tableView = self.view?.getTableView()
-        tableAdapter.delegate = self
         
         presentAddNote()
     }
@@ -40,7 +36,11 @@ final class NotesListPresenterImpl: NotesListPresenter, NotesListTableAdapterDel
         }
     }
     
-    func didSelectItem(title: String) {
+    func getNoteByIndex(index: Int) -> NoteEntity {
+        return noteSettings.getTaskByIndex(index: index)
     }
     
+    func numberOfNotes() -> Int {
+        return noteSettings.numberOfTasks()
+    }
 }

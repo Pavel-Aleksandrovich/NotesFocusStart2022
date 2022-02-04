@@ -11,9 +11,9 @@ final class NotesListAssembly {
     
     static func build() -> UIViewController {
         
+        let noteSettings = NoteSettingsImpl()
         let router = NotesListRouterImpl()
-        let tableAdapter = NotesListTableAdapterImpl()
-        let presenter = NotesListPresenterImpl(tableAdapter: tableAdapter, router: router)
+        let presenter = NotesListPresenterImpl(router: router, noteSettings: noteSettings)
         let viewController = NotesListViewControllerImpl(presenter: presenter)
         
         return viewController
