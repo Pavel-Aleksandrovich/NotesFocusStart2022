@@ -12,8 +12,6 @@
 		8476A24227A78B6E0062440A /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A24127A78B6E0062440A /* NotesListViewController.swift */; };
 		8476A24727A78B700062440A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8476A24627A78B700062440A /* Assets.xcassets */; };
 		8476A24A27A78B700062440A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8476A24827A78B700062440A /* LaunchScreen.storyboard */; };
-		8476A25527A78B700062440A /* NotesFocusStart2022Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A25427A78B700062440A /* NotesFocusStart2022Tests.swift */; };
-		8476A26027A78B700062440A /* NotesFocusStart2022UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A25F27A78B700062440A /* NotesFocusStart2022UITests.swift */; };
 		8476A26F27A799540062440A /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A26E27A799540062440A /* NoteCell.swift */; };
 		8476A27327A7AB200062440A /* NoteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27227A7AB200062440A /* NoteEntity.swift */; };
 		8476A27927A7BBE50062440A /* NotesListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27827A7BBE50062440A /* NotesListAssembly.swift */; };
@@ -58,11 +56,7 @@
 		8476A24927A78B700062440A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8476A24B27A78B700062440A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8476A25027A78B700062440A /* NotesFocusStart2022Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesFocusStart2022Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8476A25427A78B700062440A /* NotesFocusStart2022Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesFocusStart2022Tests.swift; sourceTree = "<group>"; };
-		8476A25627A78B700062440A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8476A25B27A78B700062440A /* NotesFocusStart2022UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesFocusStart2022UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8476A25F27A78B700062440A /* NotesFocusStart2022UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesFocusStart2022UITests.swift; sourceTree = "<group>"; };
-		8476A26127A78B700062440A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8476A26E27A799540062440A /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		8476A27227A7AB200062440A /* NoteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEntity.swift; sourceTree = "<group>"; };
 		8476A27827A7BBE50062440A /* NotesListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListAssembly.swift; sourceTree = "<group>"; };
@@ -110,8 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				8476A23C27A78B6E0062440A /* NotesFocusStart2022 */,
-				8476A25327A78B700062440A /* NotesFocusStart2022Tests */,
-				8476A25E27A78B700062440A /* NotesFocusStart2022UITests */,
 				8476A23B27A78B6E0062440A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -136,24 +128,6 @@
 				8476A28F27AD1B400062440A /* Supports */,
 			);
 			path = NotesFocusStart2022;
-			sourceTree = "<group>";
-		};
-		8476A25327A78B700062440A /* NotesFocusStart2022Tests */ = {
-			isa = PBXGroup;
-			children = (
-				8476A25427A78B700062440A /* NotesFocusStart2022Tests.swift */,
-				8476A25627A78B700062440A /* Info.plist */,
-			);
-			path = NotesFocusStart2022Tests;
-			sourceTree = "<group>";
-		};
-		8476A25E27A78B700062440A /* NotesFocusStart2022UITests */ = {
-			isa = PBXGroup;
-			children = (
-				8476A25F27A78B700062440A /* NotesFocusStart2022UITests.swift */,
-				8476A26127A78B700062440A /* Info.plist */,
-			);
-			path = NotesFocusStart2022UITests;
 			sourceTree = "<group>";
 		};
 		8476A27E27A7DA300062440A /* NotesList */ = {
@@ -384,7 +358,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8476A25527A78B700062440A /* NotesFocusStart2022Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +365,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8476A26027A78B700062440A /* NotesFocusStart2022UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
