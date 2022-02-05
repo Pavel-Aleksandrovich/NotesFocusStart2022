@@ -39,13 +39,13 @@ final class NoteDetailsViewControllerImpl: UIViewController, NoteDetailsViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.loadView(viewController: self, view: noteDetailsView)
-        addNoteButton()
+        addPickImageButton()
         title = Constants.title
     }
-    //to do rename
-    private func addNoteButton() {
-        let addNoteButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(showChooseSourceTypeAlertController))
-        self.navigationItem.rightBarButtonItem = addNoteButton
+    
+    private func addPickImageButton() {
+        let addPickImageButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(showChooseSourceTypeAlertController))
+        self.navigationItem.rightBarButtonItem = addPickImageButton
     }
     
     @objc func showChooseSourceTypeAlertController() {

@@ -38,11 +38,11 @@ final class NotesListPresenterImpl: NotesListPresenter {
     }
     
     func getNoteByIndex(index: Int) -> NoteEntity {
-        return interactor.getTaskByIndex(index: index)
+        return interactor.getNoteByIndex(index: index)
     }
     
     func numberOfNotes() -> Int {
-        return interactor.numberOfTasks()
+        return interactor.numberOfNotes()
     }
     
     func presentNoteDetails(index: Int) {
@@ -50,6 +50,6 @@ final class NotesListPresenterImpl: NotesListPresenter {
     }
     
     func removeNoteAtIndex(index: Int) {
-        interactor.removeTask(index: index)
+        interactor.removeNote(index: index)
     }
 }

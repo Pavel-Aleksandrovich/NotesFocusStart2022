@@ -9,29 +9,29 @@ import Foundation
 
 final class NotesInteractor {
     
-    private let noteSettings: NoteSettings
+    private let notesStorage: NotesStorage
     
-    init(noteSettings: NoteSettings) {
-        self.noteSettings = noteSettings
+    init(notesStorage: NotesStorage) {
+        self.notesStorage = notesStorage
     }
     
-    func createTask(task: NoteEntity) {
-        noteSettings.saveTask(task: task)
+    func createNote(note: NoteEntity) {
+        notesStorage.createNote(note: note)
     }
 
-    func removeTask(index: Int) {
-        noteSettings.removeTask(index: index)
+    func removeNote(index: Int) {
+        notesStorage.removeNote(index: index)
     }
 
-    func numberOfTasks() -> Int {
-        return noteSettings.numberOfTasks()
+    func numberOfNotes() -> Int {
+        return notesStorage.numberOfNotes()
     }
 
-    func getTaskByIndex(index: Int) -> NoteEntity {
-        return noteSettings.getTaskByIndex(index: index)
+    func getNoteByIndex(index: Int) -> NoteEntity {
+        return notesStorage.getNoteByIndex(index: index)
     }
 
     func updateNoteByIndex(note: NoteEntity, index: Int) {
-        noteSettings.updateNoteByIndex(note: note, index: index)
+        notesStorage.updateNoteByIndex(note: note, index: index)
     }
 }

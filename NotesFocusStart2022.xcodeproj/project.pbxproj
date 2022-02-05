@@ -24,7 +24,7 @@
 		8476A28627A7E5570062440A /* NoteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28527A7E5570062440A /* NoteDetailsView.swift */; };
 		8476A28827A7E6B40062440A /* NoteDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28727A7E6B40062440A /* NoteDetailsPresenter.swift */; };
 		8476A28A27A7EA060062440A /* NoteDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28927A7EA060062440A /* NoteDetailsRouter.swift */; };
-		8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28B27ABF2B20062440A /* NoteSettings.swift */; };
+		8476A28C27ABF2B20062440A /* NotesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28B27ABF2B20062440A /* NotesStorage.swift */; };
 		8476A28E27AD05050062440A /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28D27AD05050062440A /* UIViewController Extension.swift */; };
 		8476A29727AD1ECE0062440A /* UITextField Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29627AD1ECE0062440A /* UITextField Extension.swift */; };
 		8476A29927AD1EDF0062440A /* UITextView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29827AD1EDF0062440A /* UITextView Extension.swift */; };
@@ -73,7 +73,7 @@
 		8476A28527A7E5570062440A /* NoteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsView.swift; sourceTree = "<group>"; };
 		8476A28727A7E6B40062440A /* NoteDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsPresenter.swift; sourceTree = "<group>"; };
 		8476A28927A7EA060062440A /* NoteDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsRouter.swift; sourceTree = "<group>"; };
-		8476A28B27ABF2B20062440A /* NoteSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSettings.swift; sourceTree = "<group>"; };
+		8476A28B27ABF2B20062440A /* NotesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesStorage.swift; sourceTree = "<group>"; };
 		8476A28D27AD05050062440A /* UIViewController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController Extension.swift"; sourceTree = "<group>"; };
 		8476A29627AD1ECE0062440A /* UITextField Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField Extension.swift"; sourceTree = "<group>"; };
 		8476A29827AD1EDF0062440A /* UITextView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView Extension.swift"; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				8476A27227A7AB200062440A /* NoteEntity.swift */,
-				8476A28B27ABF2B20062440A /* NoteSettings.swift */,
+				8476A28B27ABF2B20062440A /* NotesStorage.swift */,
 				8476A29C27AD6B1D0062440A /* NotesInteractor.swift */,
 			);
 			path = Common;
@@ -376,7 +376,7 @@
 				8476A29B27AD1EF00062440A /* UIImageView Extension.swift in Sources */,
 				8476A28A27A7EA060062440A /* NoteDetailsRouter.swift in Sources */,
 				8476A26F27A799540062440A /* NoteCell.swift in Sources */,
-				8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */,
+				8476A28C27ABF2B20062440A /* NotesStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

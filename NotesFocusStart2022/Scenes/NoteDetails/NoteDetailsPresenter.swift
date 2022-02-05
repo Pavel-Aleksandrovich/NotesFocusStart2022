@@ -35,7 +35,7 @@ final class NoteDetailsPresenterImpl: NoteDetailsPresenter {
     
     private func getNoteByIndex() {
         guard let index = index else { return }
-        let note = interactor.getTaskByIndex(index: index)
+        let note = interactor.getNoteByIndex(index: index)
         view?.configure(note: note)
     }
     
@@ -58,7 +58,7 @@ final class NoteDetailsPresenterImpl: NoteDetailsPresenter {
     }
     
     private func saveNoteToStorage(note: NoteEntity) {
-        interactor.createTask(task: note)
+        interactor.createNote(note: note)
         router.dismissAddNote()
     }
     
