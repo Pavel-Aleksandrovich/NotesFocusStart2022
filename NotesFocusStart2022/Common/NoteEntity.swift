@@ -1,5 +1,5 @@
 //
-//  Entity.swift
+//  NoteEntity.swift
 //  NotesFocusStart2022
 //
 //  Created by pavel mishanin on 31.01.2022.
@@ -8,6 +8,7 @@
 import UIKit
 
 class NoteEntity: NSObject, NSCoding {
+    
     let title: String
     let descriptionText: String
     let noteImage: UIImage

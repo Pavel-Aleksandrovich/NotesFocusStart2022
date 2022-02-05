@@ -105,7 +105,6 @@ final class NoteDetailsViewImpl: UIView, NoteDetailsView {
         titleTextField.layer.borderWidth = Constants.titleBorderWidth
         titleTextField.layer.cornerRadius = Constants.titleCornerRadius
         titleTextField.layer.borderColor = UIColor.black.cgColor
-//        titleTextField.delegate = self 
         titleTextField.placeholder = Constants.titlePlaceholder
         titleTextField.textAlignment = .left
         
