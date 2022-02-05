@@ -39,11 +39,11 @@ final class NoteDetailsViewControllerImpl: UIViewController, NoteDetailsViewCont
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.loadView(viewController: self, view: noteDetailsView)
-        addPickImageButton()
+        createAddPickImageButton()
         title = Constants.title
     }
     
-    private func addPickImageButton() {
+    private func createAddPickImageButton() {
         let addPickImageButton = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(showChooseSourceTypeAlertController))
         self.navigationItem.rightBarButtonItem = addPickImageButton
     }

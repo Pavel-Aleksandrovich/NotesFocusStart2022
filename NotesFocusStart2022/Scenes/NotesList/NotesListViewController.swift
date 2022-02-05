@@ -11,11 +11,11 @@ protocol NotesListViewController: AnyObject {
     var addNoteButtonTappedHandler: (() -> ())? { get set }
 }
 
-final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, UITableViewDataSource, NotesListViewController {
+final class NotesListViewControllerImpl: UIViewController, NotesListViewController {
     
     private enum Constants {
         static let cellIdentifier = "cellIdentifier"
-        static let rowHeight: CGFloat = 80
+        static let heightForRow: CGFloat = 80
         static let title = "Notes"
     }
     
@@ -36,13 +36,22 @@ final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.loadView(viewController: self)
-        addNoteButton()
+        createAddNoteButton()
         configureView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    private func createAddNoteButton() {
+        let addNoteButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNoteButtonTapped))
+        self.navigationItem.rightBarButtonItem = addNoteButton
+    }
+    
+    @objc private func addNoteButtonTapped() {
+        self.addNoteButtonTappedHandler?()
     }
     
     private func configureView() {
@@ -63,15 +72,9 @@ final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, 
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-    private func addNoteButton() {
-        let addNoteButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNoteButtonTapped))
-        self.navigationItem.rightBarButtonItem = addNoteButton
-    }
-    
-    @objc private func addNoteButtonTapped() {
-        self.addNoteButtonTappedHandler?()
-    }
+}
+
+extension NotesListViewControllerImpl: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! NoteCell
@@ -87,7 +90,7 @@ final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        Constants.rowHeight
+        Constants.heightForRow
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -105,4 +108,3 @@ final class NotesListViewControllerImpl: UIViewController, UITableViewDelegate, 
         }
     }
 }
-

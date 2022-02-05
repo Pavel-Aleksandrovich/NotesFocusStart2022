@@ -20,7 +20,7 @@ extension UIViewController {
             closure(.photoLibrary)
         }
         let cameraAction = UIAlertAction(title: "Camera", style: .default) {_ in
-            closure(.camera)
+//            closure(.camera)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         

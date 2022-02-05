@@ -13,18 +13,26 @@ protocol NoteDetailsView: UIView {
     func getImageFromImagePicker(image: UIImage)
 }
 
-final class NoteDetailsViewImpl: UIView, NoteDetailsView, UITextFieldDelegate {
+final class NoteDetailsViewImpl: UIView, NoteDetailsView {
     
     private enum Constants {
-        static let title = "Notes"
-        static let alertTitle = "Choose Image"
+        static let saveButtonTitle = "SAVE"
+        static let saveButtonCornerRadius: CGFloat = 25
+        
+        static let titleBorderWidth: CGFloat = 0.5
+        static let titleCornerRadius: CGFloat = 5
+        static let titlePlaceholder = "Entry text"
+        
+        static let descriptionBorderWidth: CGFloat = 0.5
+        static let descriptionCornerRadius: CGFloat = 5
+        
+        static let imageCornerRadius: CGFloat = 25
     }
     
     private let titleTextField = UITextField()
     private let descriptionTextView = UITextView()
     private let saveButton = UIButton()
     private let noteImageView = UIImageView()
-    private let scrollView = UIScrollView()
     private var vConstraints = [NSLayoutConstraint]()
     private var hConstraints = [NSLayoutConstraint]()
     
@@ -39,43 +47,6 @@ final class NoteDetailsViewImpl: UIView, NoteDetailsView, UITextFieldDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func configureView() {
-        
-        self.backgroundColor = .white
-        
-        saveButton.setTitle("SAVE", for: .normal)
-        saveButton.setTitleColor(.white, for: .normal)
-        saveButton.layer.cornerRadius = 25
-        saveButton.backgroundColor = .red
-        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
-        
-        titleTextField.layer.borderWidth = 0.5
-        titleTextField.layer.cornerRadius = 5
-        titleTextField.layer.borderColor = UIColor.black.cgColor
-        titleTextField.delegate = self
-        titleTextField.placeholder = "Entry text"
-        titleTextField.textAlignment = .left
-        
-        descriptionTextView.layer.borderWidth = 0.5
-        descriptionTextView.layer.cornerRadius = 5
-        descriptionTextView.layer.borderColor = UIColor.black.cgColor
-        
-        noteImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
-        noteImageView.layer.cornerRadius = 25
-        noteImageView.clipsToBounds = true
-        
-        [titleTextField, saveButton, noteImageView, scrollView, descriptionTextView].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
-        
-        addSubview(scrollView)
-        scrollView.addSubview(titleTextField)
-        scrollView.addSubview(descriptionTextView)
-        addSubview(saveButton)
-        addSubview(noteImageView)
-        
     }
     
     func getImageFromImagePicker(image: UIImage) {
@@ -121,6 +92,42 @@ final class NoteDetailsViewImpl: UIView, NoteDetailsView, UITextFieldDelegate {
         NSLayoutConstraint.activate(hConstraints)
     }
     
+    private func configureView() {
+        
+        self.backgroundColor = .white
+        
+        saveButton.setTitle(Constants.saveButtonTitle, for: .normal)
+        saveButton.setTitleColor(.white, for: .normal)
+        saveButton.layer.cornerRadius = Constants.saveButtonCornerRadius
+        saveButton.backgroundColor = .red
+        saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+        
+        titleTextField.layer.borderWidth = Constants.titleBorderWidth
+        titleTextField.layer.cornerRadius = Constants.titleCornerRadius
+        titleTextField.layer.borderColor = UIColor.black.cgColor
+//        titleTextField.delegate = self 
+        titleTextField.placeholder = Constants.titlePlaceholder
+        titleTextField.textAlignment = .left
+        
+        descriptionTextView.layer.borderWidth = Constants.descriptionBorderWidth
+        descriptionTextView.layer.cornerRadius = Constants.descriptionCornerRadius
+        descriptionTextView.layer.borderColor = UIColor.black.cgColor
+        
+        noteImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
+        noteImageView.layer.cornerRadius = Constants.imageCornerRadius
+        noteImageView.clipsToBounds = true
+        
+        [titleTextField, saveButton, noteImageView, descriptionTextView].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        addSubview(titleTextField)
+        addSubview(descriptionTextView)
+        addSubview(saveButton)
+        addSubview(noteImageView)
+        
+    }
+    
     private func configureLayoutConstraints() {
         
         vConstraints.append(contentsOf: [
@@ -134,21 +141,15 @@ final class NoteDetailsViewImpl: UIView, NoteDetailsView, UITextFieldDelegate {
             noteImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4),
             noteImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.4),
             
-            scrollView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: noteImageView.topAnchor, constant: -10),
-            
-            titleTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            titleTextField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            titleTextField.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
+            titleTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            titleTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
+            titleTextField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
             titleTextField.heightAnchor.constraint(equalToConstant: 30),
             
-            descriptionTextView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            descriptionTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 10),
-            descriptionTextView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, multiplier: 0.9),
+            descriptionTextView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
             descriptionTextView.bottomAnchor.constraint(equalTo: noteImageView.topAnchor, constant: -10),
-            
         ])
         
         hConstraints.append(contentsOf: [
@@ -162,30 +163,19 @@ final class NoteDetailsViewImpl: UIView, NoteDetailsView, UITextFieldDelegate {
             noteImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2),
             noteImageView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2),
             
-            scrollView.leadingAnchor.constraint(equalTo: noteImageView.trailingAnchor, constant: 10),
-            scrollView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -10),
-            
-            titleTextField.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            titleTextField.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            titleTextField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
-            titleTextField.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            titleTextField.leadingAnchor.constraint(equalTo: noteImageView.trailingAnchor, constant: 10),
+            titleTextField.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
+            titleTextField.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
             titleTextField.heightAnchor.constraint(equalToConstant: 30),
             
-            descriptionTextView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            descriptionTextView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            descriptionTextView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            descriptionTextView.leadingAnchor.constraint(equalTo: noteImageView.trailingAnchor, constant: 10),
+            descriptionTextView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
             descriptionTextView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 10),
             descriptionTextView.bottomAnchor.constraint(equalTo: saveButton.topAnchor, constant: -10),
         
         ])
-        
         NSLayoutConstraint.activate( hConstraints )
-        
         changeViewLayout(traitCollection: traitCollection)
     }
-    
-    
 }
 
