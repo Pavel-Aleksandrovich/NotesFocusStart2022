@@ -16,7 +16,7 @@ final class NotesListRouterImpl: NotesListRouter {
     weak var controller: UIViewController?
     
     func presentAddNote(index: Int?) {
-        let addNote = AddNoteAssembly.build(index: index)
+        let addNote = NoteDetailsAssembly.build(index: index)
         controller?.navigationController?.pushViewController(addNote, animated: false)
     }
     

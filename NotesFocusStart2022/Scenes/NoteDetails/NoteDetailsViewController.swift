@@ -1,5 +1,5 @@
 //
-//  AddNoteViewController.swift
+//  NoteDetailsViewController.swift
 //  NotesFocusStart2022
 //
 //  Created by pavel mishanin on 31.01.2022.
@@ -7,23 +7,23 @@
 
 import UIKit
 
-protocol AddNoteViewController: AnyObject {
+protocol NoteDetailsViewController: AnyObject {
     
 }
 
-final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
+final class NoteDetailsViewControllerImpl: UIViewController, NoteDetailsViewController {
     
     private enum Constants {
         static let title = "Notes"
         static let alertTitle = "Choose Image"
     }
     
-    private let addNoteView: AddNoteView
-    private let presenter: AddNotePresenter
+    private let noteDetailsView: NoteDetailsView
+    private let presenter: NoteDetailsPresenter
     
-    init(presenter: AddNotePresenter) {
+    init(presenter: NoteDetailsPresenter) {
         self.presenter = presenter
-        addNoteView = AddNoteViewImpl()
+        noteDetailsView = NoteDetailsViewImpl()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,12 +33,12 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
     
     override func loadView() {
         super.loadView()
-        view = addNoteView
+        view = noteDetailsView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.loadView(viewController: self, view: addNoteView)
+        presenter.loadView(viewController: self, view: noteDetailsView)
         addNoteButton()
         title = Constants.title
     }
@@ -65,7 +65,7 @@ final class AddNoteViewControllerImpl: UIViewController, AddNoteViewController {
 }
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 
-extension AddNoteViewControllerImpl:
+extension NoteDetailsViewControllerImpl:
     UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

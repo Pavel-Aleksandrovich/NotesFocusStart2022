@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol AddNoteRouter {
+protocol NoteDetailsRouter {
     func dismissAddNote()
 }
 
-final class AddNoteRouterImpl: AddNoteRouter {
+final class NoteDetailsRouterImpl: NoteDetailsRouter {
     
     weak var controller: UIViewController?
     

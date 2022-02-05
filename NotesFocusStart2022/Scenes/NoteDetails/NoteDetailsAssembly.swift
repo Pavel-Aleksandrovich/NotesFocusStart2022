@@ -7,15 +7,15 @@
 
 import UIKit
 
-final class AddNoteAssembly {
+final class NoteDetailsAssembly {
     
     static func build(index: Int?) -> UIViewController {
         
-        let router = AddNoteRouterImpl()
+        let router = NoteDetailsRouterImpl()
         let noteSettings = NoteSettingsImpl()
         let interactor = NotesInteractor(noteSettings: noteSettings)
-        let presenter = AddNotePresenterImpl(interactor: interactor, router: router, index: index)
-        let viewController = AddNoteViewControllerImpl(presenter: presenter)
+        let presenter = NoteDetailsPresenterImpl(interactor: interactor, router: router, index: index)
+        let viewController = NoteDetailsViewControllerImpl(presenter: presenter)
         router.controller = viewController
         
         return viewController

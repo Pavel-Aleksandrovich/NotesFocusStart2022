@@ -7,26 +7,26 @@
 
 import UIKit
 
-protocol AddNotePresenter {
-    func loadView(viewController: AddNoteViewController, view: AddNoteView)
+protocol NoteDetailsPresenter {
+    func loadView(viewController: NoteDetailsViewController, view: NoteDetailsView)
     func getImageFromImagePicker(image: UIImage)
 }
 
-final class AddNotePresenterImpl: AddNotePresenter {
+final class NoteDetailsPresenterImpl: NoteDetailsPresenter {
      
-    private weak var viewController: AddNoteViewController?
-    private weak var view: AddNoteView?
+    private weak var viewController: NoteDetailsViewController?
+    private weak var view: NoteDetailsView?
     private let interactor: NotesInteractor
-    private let router: AddNoteRouter
+    private let router: NoteDetailsRouter
     private let index: Int?
     
-    init(interactor: NotesInteractor, router: AddNoteRouter, index: Int?) {
+    init(interactor: NotesInteractor, router: NoteDetailsRouter, index: Int?) {
         self.interactor = interactor
         self.router = router
         self.index = index
     }
     
-    func loadView(viewController: AddNoteViewController, view: AddNoteView) {
+    func loadView(viewController: NoteDetailsViewController, view: NoteDetailsView) {
         self.viewController = viewController
         self.view = view
         addSaveButtonTappedHandler()

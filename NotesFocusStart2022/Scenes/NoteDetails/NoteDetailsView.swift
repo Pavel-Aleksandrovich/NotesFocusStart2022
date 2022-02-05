@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol AddNoteView: UIView {
+protocol NoteDetailsView: UIView {
     var saveButtonTappedHandler: ((NoteEntity) -> ())? { get set }
     func configure(note: NoteEntity)
     func getImageFromImagePicker(image: UIImage)
 }
 
-final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
+final class NoteDetailsViewImpl: UIView, NoteDetailsView, UITextFieldDelegate {
     
     private enum Constants {
         static let title = "Notes"
@@ -65,12 +65,6 @@ final class AddNoteViewImpl: UIView, AddNoteView, UITextFieldDelegate {
         noteImageView.image = #imageLiteral(resourceName: "DefaultProfileImage")
         noteImageView.layer.cornerRadius = 25
         noteImageView.clipsToBounds = true
-        
-        titleTextField.translatesAutoresizingMaskIntoConstraints = false
-        saveButton.translatesAutoresizingMaskIntoConstraints = false
-        noteImageView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         
         [titleTextField, saveButton, noteImageView, scrollView, descriptionTextView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false

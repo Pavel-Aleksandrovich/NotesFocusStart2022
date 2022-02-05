@@ -19,11 +19,11 @@
 		8476A27927A7BBE50062440A /* NotesListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27827A7BBE50062440A /* NotesListAssembly.swift */; };
 		8476A27B27A7BD900062440A /* NotesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27A27A7BD900062440A /* NotesListPresenter.swift */; };
 		8476A27D27A7D7680062440A /* NotesListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A27C27A7D7680062440A /* NotesListRouter.swift */; };
-		8476A28227A7DAFC0062440A /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28127A7DAFC0062440A /* AddNoteViewController.swift */; };
-		8476A28427A7DBA20062440A /* AddNoteAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28327A7DBA20062440A /* AddNoteAssembly.swift */; };
-		8476A28627A7E5570062440A /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28527A7E5570062440A /* AddNoteView.swift */; };
-		8476A28827A7E6B40062440A /* AddNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28727A7E6B40062440A /* AddNotePresenter.swift */; };
-		8476A28A27A7EA060062440A /* AddNoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28927A7EA060062440A /* AddNoteRouter.swift */; };
+		8476A28227A7DAFC0062440A /* NoteDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28127A7DAFC0062440A /* NoteDetailsViewController.swift */; };
+		8476A28427A7DBA20062440A /* NoteDetailsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28327A7DBA20062440A /* NoteDetailsAssembly.swift */; };
+		8476A28627A7E5570062440A /* NoteDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28527A7E5570062440A /* NoteDetailsView.swift */; };
+		8476A28827A7E6B40062440A /* NoteDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28727A7E6B40062440A /* NoteDetailsPresenter.swift */; };
+		8476A28A27A7EA060062440A /* NoteDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28927A7EA060062440A /* NoteDetailsRouter.swift */; };
 		8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28B27ABF2B20062440A /* NoteSettings.swift */; };
 		8476A28E27AD05050062440A /* UIViewController Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A28D27AD05050062440A /* UIViewController Extension.swift */; };
 		8476A29727AD1ECE0062440A /* UITextField Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476A29627AD1ECE0062440A /* UITextField Extension.swift */; };
@@ -68,11 +68,11 @@
 		8476A27827A7BBE50062440A /* NotesListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListAssembly.swift; sourceTree = "<group>"; };
 		8476A27A27A7BD900062440A /* NotesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListPresenter.swift; sourceTree = "<group>"; };
 		8476A27C27A7D7680062440A /* NotesListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListRouter.swift; sourceTree = "<group>"; };
-		8476A28127A7DAFC0062440A /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
-		8476A28327A7DBA20062440A /* AddNoteAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteAssembly.swift; sourceTree = "<group>"; };
-		8476A28527A7E5570062440A /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
-		8476A28727A7E6B40062440A /* AddNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotePresenter.swift; sourceTree = "<group>"; };
-		8476A28927A7EA060062440A /* AddNoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteRouter.swift; sourceTree = "<group>"; };
+		8476A28127A7DAFC0062440A /* NoteDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsViewController.swift; sourceTree = "<group>"; };
+		8476A28327A7DBA20062440A /* NoteDetailsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsAssembly.swift; sourceTree = "<group>"; };
+		8476A28527A7E5570062440A /* NoteDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsView.swift; sourceTree = "<group>"; };
+		8476A28727A7E6B40062440A /* NoteDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsPresenter.swift; sourceTree = "<group>"; };
+		8476A28927A7EA060062440A /* NoteDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailsRouter.swift; sourceTree = "<group>"; };
 		8476A28B27ABF2B20062440A /* NoteSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSettings.swift; sourceTree = "<group>"; };
 		8476A28D27AD05050062440A /* UIViewController Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController Extension.swift"; sourceTree = "<group>"; };
 		8476A29627AD1ECE0062440A /* UITextField Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField Extension.swift"; sourceTree = "<group>"; };
@@ -180,11 +180,11 @@
 		8476A28027A7DAB60062440A /* NoteDetails */ = {
 			isa = PBXGroup;
 			children = (
-				8476A28127A7DAFC0062440A /* AddNoteViewController.swift */,
-				8476A28527A7E5570062440A /* AddNoteView.swift */,
-				8476A28727A7E6B40062440A /* AddNotePresenter.swift */,
-				8476A28327A7DBA20062440A /* AddNoteAssembly.swift */,
-				8476A28927A7EA060062440A /* AddNoteRouter.swift */,
+				8476A28127A7DAFC0062440A /* NoteDetailsViewController.swift */,
+				8476A28527A7E5570062440A /* NoteDetailsView.swift */,
+				8476A28727A7E6B40062440A /* NoteDetailsPresenter.swift */,
+				8476A28327A7DBA20062440A /* NoteDetailsAssembly.swift */,
+				8476A28927A7EA060062440A /* NoteDetailsRouter.swift */,
 			);
 			path = NoteDetails;
 			sourceTree = "<group>";
@@ -360,21 +360,21 @@
 			files = (
 				8476A28E27AD05050062440A /* UIViewController Extension.swift in Sources */,
 				8476A29D27AD6B1D0062440A /* NotesInteractor.swift in Sources */,
-				8476A28827A7E6B40062440A /* AddNotePresenter.swift in Sources */,
+				8476A28827A7E6B40062440A /* NoteDetailsPresenter.swift in Sources */,
 				8476A27B27A7BD900062440A /* NotesListPresenter.swift in Sources */,
 				8476A24227A78B6E0062440A /* NotesListViewController.swift in Sources */,
 				8476A23E27A78B6E0062440A /* AppDelegate.swift in Sources */,
 				8476A27D27A7D7680062440A /* NotesListRouter.swift in Sources */,
 				8476A27327A7AB200062440A /* NoteEntity.swift in Sources */,
 				8476A24027A78B6E0062440A /* SceneDelegate.swift in Sources */,
-				8476A28427A7DBA20062440A /* AddNoteAssembly.swift in Sources */,
-				8476A28227A7DAFC0062440A /* AddNoteViewController.swift in Sources */,
+				8476A28427A7DBA20062440A /* NoteDetailsAssembly.swift in Sources */,
+				8476A28227A7DAFC0062440A /* NoteDetailsViewController.swift in Sources */,
 				8476A29727AD1ECE0062440A /* UITextField Extension.swift in Sources */,
 				8476A27927A7BBE50062440A /* NotesListAssembly.swift in Sources */,
 				8476A29927AD1EDF0062440A /* UITextView Extension.swift in Sources */,
-				8476A28627A7E5570062440A /* AddNoteView.swift in Sources */,
+				8476A28627A7E5570062440A /* NoteDetailsView.swift in Sources */,
 				8476A29B27AD1EF00062440A /* UIImageView Extension.swift in Sources */,
-				8476A28A27A7EA060062440A /* AddNoteRouter.swift in Sources */,
+				8476A28A27A7EA060062440A /* NoteDetailsRouter.swift in Sources */,
 				8476A26F27A799540062440A /* NoteCell.swift in Sources */,
 				8476A28C27ABF2B20062440A /* NoteSettings.swift in Sources */,
 			);
