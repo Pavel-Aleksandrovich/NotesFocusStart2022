@@ -2,7 +2,7 @@
 Application for watching list of notes or tasks
 
 ## Branch
-- Current branch - ** main **
+- Current branch - **main**
 
 ## Features
 - List notes
@@ -26,4 +26,5 @@ Application for watching list of notes or tasks
 
 ## Author
 - Pavel Mishanin 
-** t.me/pavel_mishanin **
+
+**t.me/pavel_mishanin**
