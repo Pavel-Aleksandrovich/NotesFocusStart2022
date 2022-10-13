@@ -1,6 +1,9 @@
 # Notes
 Application for watching list of notes or tasks
 
+## Branch
+- Current branch - ** ** main ** **
+
 ## Features
 - List notes
 - Create note
@@ -22,4 +25,4 @@ Application for watching list of notes or tasks
 <img width="483" alt="Notes4" src="https://user-images.githubusercontent.com/87460819/195495027-56b9448e-76ef-476a-950a-094c6b9f3cce.png">
 
 ## Author
-- Pavel Moshanin t.me/pavel_mishanin
+- Pavel Mishanin t.me/pavel_mishanin
