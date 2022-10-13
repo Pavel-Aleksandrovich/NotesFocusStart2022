@@ -1,5 +1,5 @@
 # Notes
-Application for saving note or task
+Application for watching list of notes or tasks
 
 ## Features
 - List notes
